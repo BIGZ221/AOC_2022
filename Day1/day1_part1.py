@@ -1,13 +1,12 @@
+max_inv = 0
 
 with open("input.txt") as f:
     data = f.read()
 
 data = data.split("\n\n")
 
-invs = {}
-
-for i, elf in enumerate(data):
+for elf in data:
     inv = sum(list(map(int, elf.split())))
-    invs[i] = inv
+    max_inv = max(inv)
 
-print(sum(sorted(invs.values(),reverse=True)[:3]))
+print(max_inv)
